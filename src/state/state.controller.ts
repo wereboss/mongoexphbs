@@ -32,7 +32,8 @@ class StateController {
   };
   addState = (request: express.Request, response: express.Response) => {
     var state = new stateModel(request.body);
-  
+    let ts = new Date(Date.now())
+    state.timestamp = ts.toJSON();
     state.save((err: any) => {
       if (err) {
         response.send(err);
