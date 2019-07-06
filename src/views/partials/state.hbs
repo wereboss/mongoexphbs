@@ -1,0 +1,28 @@
+<table style="border: 1;">
+
+    {{#each stateData}}
+    <tr>
+        <td>
+            <span>
+                State:{{@index}}
+            </span>
+        </td>
+        <td>
+            <span>
+                TimeStamp:{{this.timestamp}}
+            </span>
+        </td>
+        <td>
+            <span>
+                Actions:{{> action actionArr=this.actions}}
+            </span>
+        </td>
+        <td>
+            <span>
+                Sensors:{{> sensor sensorArr=this.sensors}}
+            </span>
+        </td>
+        </div>
+    </tr>
+    {{/each}}
+</table>

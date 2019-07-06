@@ -1,0 +1,21 @@
+<table style="border-color:black;border: 1px;">
+    {{#each sensorArr}}
+    <tr>
+        <td>
+            <span>
+                Sensor:{{@index}}
+            </span>
+        </td>
+        <td>
+            <span>
+                Name:{{this.name}}
+            </span>
+        </td>
+        <td>
+            <span>
+                Type:{{this.stype}}
+            </span>
+        </td>
+    </tr>
+    {{/each}}
+</table>
