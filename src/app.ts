@@ -1,23 +1,20 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
-import ExpressHandlebars from "express-handlebars";
+import * as path from "path";
+import * as expressHbs from "express-handlebars";
 import * as mongoose from "mongoose";
 import Controller from "./interfaces/controller.interface";
 import errorMiddleware from "./middleware/error.middleware";
 
 class App {
   public app: express.Application;
-
+    
   constructor(controllers: Controller[]) {
     this.app = express();
 
-    this.app.engine(
-      "hbs",
-      ExpressHandlebars({
-        extname: "hbs"
-      })
-    );
-    this.app.set("view engine", "hbs");
+    this.app.set('views', path.join(__dirname,"views"));
+    this.app.engine('.hbs', expressHbs({defaultLayout: 'main', extname: '.hbs'}));
+    this.app.set('view engine', '.hbs');
 
     this.connectToTheDatabase();
     this.initializeMiddlewares();

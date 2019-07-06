@@ -14,7 +14,9 @@ class HomeController {
 
       defaultHome = (request: express.Request, response: express.Response) => {
         console.log("inside defaultHome");
-        response.send("Default Home GET handler")
+        //response.send("Default Home GET handler");
+        //response.render("home");
+        response.render('home', {layout: 'second', sampledata: 'home-template'});
       };
 }
 export default HomeController;
