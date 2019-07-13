@@ -1,4 +1,4 @@
-import Sensor from "./sensor.interface";
+import Sensor from "../sensor/sensor.interface";
 import Action from "./action.interface";
 import * as mongoose from "mongoose";
 

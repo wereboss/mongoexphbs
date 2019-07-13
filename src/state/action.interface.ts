@@ -1,8 +1,14 @@
-import Sensor from "./sensor.interface";
+import Sensor from "../sensor/sensor.interface";
+import * as mongoose from "mongoose";
 
-interface Action{
-    action:string;
-    nextState:Sensor[];
+interface Action extends mongoose.Document {
+  action: string;
+  nextState: [{
+    sensor:string,
+    state:string,
+    value:number
   }
+  ];
+}
 
-  export default Action;
+export default Action;

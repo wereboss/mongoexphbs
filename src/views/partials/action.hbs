@@ -1,20 +1,8 @@
-<table style="border: 1;">
-    {{#each actionArr}}
-    <tr>
-        <td> <span>
-                Act:{{@index}}
-            </span>
-        </td>
-        <td>
-            <span>
-                Action:{{this.action}}
-            </span>
-        </td>
-        <td>
-            <span>
-                New State:{{> sensor sensorArr=this.nextState}}
-            </span>
-        </td>
-    </tr>
-    {{/each}}
-</table>
+{{#each actionArr}}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">[{{@index}}]{{this.action}}</h5>
+        <p class="card-text">{{> sensor sensorArr=this.nextState}}</p>
+    </div>
+</div>
+{{/each}}

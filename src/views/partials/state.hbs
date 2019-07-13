@@ -1,25 +1,32 @@
-<table style="border: 1;">
-
+<table class="table table-bordered table-sm table-striped" style="border: 1;">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Timestamp</th>
+            <th scope="col">Actions</th>
+            <th scope="col">Sensors</th>
+        </tr>
+    </thead>
     {{#each stateData}}
     <tr>
         <td>
             <span>
-                State:{{@index}}
+                {{@index}}
             </span>
         </td>
         <td>
             <span>
-                TimeStamp:{{this.timestamp}}
+                {{this.timestamp}}
             </span>
         </td>
         <td>
             <span>
-                Actions:{{> action actionArr=this.actions}}
+                {{> action actionArr=this.actions}}
             </span>
         </td>
         <td>
             <span>
-                Sensors:{{> sensor sensorArr=this.sensors}}
+                {{> sensor sensorArr=this.sensors}}
             </span>
         </td>
         </div>

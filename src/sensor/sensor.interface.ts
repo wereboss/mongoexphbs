@@ -1,4 +1,5 @@
-interface Sensor{
+import * as mongoose from "mongoose";
+interface Sensor extends mongoose.Document{
     name:string;
     stype:string;
     state:string;

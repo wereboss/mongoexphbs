@@ -8,20 +8,28 @@ const stateSchema = new mongoose.Schema({
       action: String,
       nextState: [
         {
-          name: String,
-          stype: String,
+          sensor: {
+            ref: "Sensor",
+            type: mongoose.Schema.Types.ObjectId
+          },
           state: String,
           value: Number
         }
       ]
     }
   ],
-  sensors: [{ name: String, stype: String, state: String, value: Number }]
+  sensors: [
+      {
+        sensor: {
+          ref: "Sensor",
+          type: mongoose.Schema.Types.ObjectId
+        },
+        state: String,
+        value: Number
+      }
+    ]
 });
 
-const stateModel = mongoose.model<State>(
-  "State",
-  stateSchema
-);
+const stateModel = mongoose.model<State>("State", stateSchema);
 
 export default stateModel;
